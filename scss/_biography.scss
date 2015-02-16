@@ -1,0 +1,205 @@
+.biography {
+	padding: 50px 5% 0 5%!important;
+	@include clearfix;
+	> .wrapper {
+		padding: 0 0 50px 0!important;
+		@include bp(neptune) {
+			padding: 0!important;
+		}
+		@include bp(venus) {
+			padding: 0;
+		}
+	}
+	.social-wrap {
+		width: 100%;
+		text-align: center;
+		float: left;
+		display: block!important;
+		.bio-about {
+			text-align: center;
+			display: inline-block;
+			> li {
+				@include bp(venus) {
+					display: inline-block!important;
+				}
+				a {
+					.outer-icon {
+						fill: transparent;
+					}
+					.inner-icon {
+						fill: $black;
+					}
+					.facebook:hover, .facebook:focus {
+						.inner-icon {
+							fill: $facebookblue;
+							transition: fill 0.1s linear;
+						}
+					}
+					.linkedin:hover, .linkedin:focus {
+						.inner-icon {
+							fill: $linkedinblue;
+						}
+					}
+					.twitter:hover, .twitter:focus {
+						.inner-icon {
+							fill: $twitterblue;
+						}
+					}
+				}
+				.bio-strike-inside {
+					width: 75px;
+					border-top: 2px solid $black;
+					@include bp(neptune) {
+						width: 50px;
+						margin: 75px 5px -25px 5px;
+					}
+					@include bp(mars) {
+						width: 25px!important;
+						margin: 75px 0 -25px 0;
+					}
+					@include bp(earth) {
+						width: 15px!important;
+						border-top: 2px dotted $black;
+					}
+				}
+				.bio-strike-outside {
+					width: 150px!important;
+					@include bp(neptune) {
+						width: 150px!important;
+						margin: 75px 5px -25px 5px;
+					}
+					@include bp(mars) {
+						width: 100px!important;
+						margin: 75px 5px -25px 5px;
+					}
+					@include bp(earth) {
+						width: 40px!important;
+						margin: 75px 0 -25px 0;
+					}
+					@include bp(venus) {
+						width: 30px;
+					}
+				}
+			}
+		}
+	}
+}
+
+.bio-about {
+	padding: 10px 0 0 0;
+	@include bp(venus) {
+		padding: 0;
+	}
+}
+
+.bio-title {
+	width: 100%;
+	.strikethrough {
+		width: 100%;
+		line-height: .05;
+		text-align: center;
+		color: $white;
+		font-size: 64px;
+		padding: 25px 0;
+		margin: 0 0 35px 0;
+		@include bp(earth) {
+			font-size: 48px;
+		}
+		@include bp(venus) {
+			font-size: 32px;
+		}
+		> span {
+			color: $black;
+			@include font-stack-body;
+		}
+	}
+	.strikethrough span {
+		display: inline-block;
+		position: relative;
+	}
+	.strikethrough span:before,
+	.strikethrough span:after {
+		content: " ";
+		position: absolute;
+		border-top: 2px solid $black;
+		top: 0;
+		margin: 0 25px;
+		width: 100%;
+		@include bp(neptune) {
+			width: 75%;
+		}
+		@include bp(venus) {
+			width: 50%;
+		}
+	}
+	.strikethrough span:before {
+		right: 100%;
+		margin: 5px 20px 0 0;
+		@include bp(venus) {
+			margin: 0 5px 0 0;
+		}
+	}
+	.strikethrough span:after {
+		left: 100%;
+		margin: 5px 0 0 20px;
+		@include bp(venus) {
+			margin: 0 0 0 5px;
+		}
+	}
+}
+
+.bio-wrapper {
+	position: relative;
+	overflow: hidden;
+	width: 80%;
+	margin: 100px auto;
+	max-width: 1280px;
+	background: $gray;
+	background-size: cover;
+	box-shadow: 0 0 2px 0;
+	@include bp(neptune) {
+		margin: 50px auto;
+	}
+	.biography {
+		padding: 50px 5%;
+		background: rgba(201, 198, 205, 0.9);
+		@include bp(venus) {
+			padding: 25px 5%;
+		}
+		@include clearfix;
+		.logo {
+			text-align: center;
+			display: block;
+			padding: 0 0 25px 0;
+			@include bp(venus) {
+				text-align: center;
+			}
+			span {
+				    img {
+					display: inline-block;
+					width: 250px;
+					border-radius: 50%;
+					border: 7px solid $black;
+					box-shadow: 0 0 5px 0;
+					@include bp(neptune) {
+						width: 200px;
+					}
+				}
+			}
+		}
+		p {
+			float: left;
+			padding: 0 0 25px 0;
+			font-size: 28px;
+			&:last-child { padding: 0; }
+			@include font-stack-brand;
+			@include bp(neptune) {
+				font-size: 24px;
+				padding: 0 0 20px 0;
+			}
+			@include bp(venus) {
+				font-size: 20px;
+			}
+		}
+	}
+}

@@ -1,0 +1,51 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	line-height: 1;
+}
+
+body {
+	background: $strongblue;
+	margin: 0 auto;
+	color: darken($black, 0.9);
+	font-size: 24px;
+	@include font-stack-body;
+	//cursor: default;
+}
+
+#{headings()} {
+	line-height: 1.5;
+	font-weight: 300;
+	font-size: 32px;
+	@include font-stack-body;
+	padding: 5px 10px;
+	color: $black;
+}
+
+h1 {
+	@include font-stack-brand;
+}
+
+h3 {
+	font-size: 24px;
+}
+
+h5 {
+	font-size: 16px;
+}
+
+a {
+	text-decoration: none;
+	color: $black;
+	@include font-stack-header;
+	&:hover {
+		color: $lightred;
+	}
+}
+
+p {
+	@include font-stack-body;
+	padding: 5px 10px;
+	color: $black;
+}
