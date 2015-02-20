@@ -1,0 +1,13 @@
+When generating a blog post via the text editor in Wordpress, remember these things...
+	1.	Remove the inline "height" style that is already attached to the <img> tag so that the image scales properly in the browser.
+	2.	Remember when aligning the image that you have three options for doing so...
+		a)	alignleft
+		b)	aligncenter
+		c)	alignright
+	3.	Remember that images will function the same way when within anchor links, so fear not!
+	4.	When posting snippets of code, be sure to place inside <pre><code></pre></code> to get the full effects of Prism.js.  Also if you want to have the code snippets denote which language is being used, implement the following classes on <code></code>...
+		a)	HTML / Markup		-->			<code class="language-markup"></code>
+		b)	CSS 					-->			<code class="language-css"></code>
+		c)	PHP					-->			<code class="language-php"></code>
+	5.	When using the markup language with Prism for a code snippet, it is important to replace all opening " < " with " &lt; " so that opening and closing tags are displayed in the snippet.
+	6.	For readability purposes, add two spaces before the first and last line of code in a code snippet!

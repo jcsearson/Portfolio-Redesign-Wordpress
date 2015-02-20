@@ -31,23 +31,23 @@
 		<div class="head-wrap">
 			<header class="wrapper">
 				<a href="/index.php">James C. Searson</a>
-			</header>
+			</header>  <!-- .wrapper -->
 
 			<nav class="menu">
 				<ul class="nav-list active">
 					<li class="contact-container">
-						<a href="/blog">Blog</a>
+						<a href="/posts">< Blog ></a>
 						<div class="triangle-marker"></div>
-					</li>
+					</li>  <!-- .contact-container -->
 					<li class="contact-container">
-						<a href="/portfolio">Portfolio</a>
+						<a href="portfolio.php">< Portfolio ></a>
 						<div class="triangle-marker"></div>
-					</li>
+					</li>  <!-- .contact-container -->
 					<li class="contact-container">
-						<a href="/about">About</a>
+						<a href="about.php">< About ></a>
 						<div class="triangle-marker"></div>
-					</li>
-				</ul>
-			</nav>
-		</div>
-	</div>
+					</li>  <!-- .contact-container -->
+				</ul>  <!-- .nav-list  //  .active -->
+			</nav>  <!-- .menu -->
+		</div>  <!-- .head-wrap -->
+	</div>  <!-- .head-container -->

@@ -329,3 +329,217 @@ require get_template_directory() . '/inc/template-tags.php';
  * @since Twenty Fifteen 1.0
  */
 require get_template_directory() . '/inc/customizer.php';
+
+// Limit Length of Post Excerpt//
+function get_excerpt($count){
+  $permalink = get_permalink($post->ID);
+  $excerpt = get_the_content();
+  $excerpt = strip_tags($excerpt);
+  $excerpt = substr($excerpt, 0, $count);
+  $excerpt = $excerpt.'... <a href="'.$permalink.'">more</a>';
+  return $excerpt;
+}
+
+add_action( 'init', 'register_cpt_projects' );
+function register_cpt_projects() {
+$labels = array(
+'name' => _x( 'Projects', 'projects' ),
+'singular_name' => _x( 'Project', 'project' ),
+'add_new' => _x( 'Add New', 'project' ),
+'add_new_item' => _x( 'Add New Project', 'project' ),
+'edit_item' => _x( 'Edit Project', 'project' ),
+'new_item' => _x( 'New Project', 'project' ),
+'view_item' => _x( 'View Projects', 'projects' ),
+'search_items' => _x( 'Search Projects', 'projects' ),
+'not_found' => _x( 'No Project Found', 'project' ),
+'not_found_in_trash' => _x( 'No Project found in Trash', 'project' ),
+'parent_item_colon' => _x( 'Parent Project:', 'project' ),
+'menu_name' => _x( 'Projects', 'projects' ),
+);
+$args = array(
+'labels' => $labels,
+'hierarchical' => true,
+'description' => 'Custom post type for Project.',
+'supports' => array( 	'title',
+						'editor',
+						'excerpt',
+						'author',
+						'thumbnail',
+						'trackbacks',
+						'custom-fields',
+						'comments',
+						'revisions',
+						'page-attributes',
+						'post-formats'),
+'taxonomies' => array( 'category',
+						'post_tag',
+						'page-category' ),
+'public' => true,
+'show_ui' => true,
+'show_in_menu' => true,
+'menu_icon' => 'dashicons-clipboard',
+'show_in_nav_menus' => true,
+'publicly_queryable' => true,
+'exclude_from_search' => false,
+'has_archive' => true,
+'query_var' => true,
+'can_export' => true,
+'rewrite' => true,
+'capability_type' => 'post'
+);
+add_theme_support('post-thumbnails');
+register_post_type( 'projects', $args );
+}
+
+add_action( 'init', 'register_cpt_jobs' );
+function register_cpt_jobs() {
+$labels = array(
+'name' => _x( 'Jobs', 'jobs' ),
+'singular_name' => _x( 'Jobs', 'jobs' ),
+'add_new' => _x( 'Add New', 'job' ),
+'add_new_item' => _x( 'Add New Job', 'job' ),
+'edit_item' => _x( 'Edit job', 'job' ),
+'new_item' => _x( 'New Job', 'job' ),
+'view_item' => _x( 'View Jobs', 'jobs' ),
+'search_items' => _x( 'Search Jobs', 'jobs' ),
+'not_found' => _x( 'No jobs found', 'jobs' ),
+'not_found_in_trash' => _x( 'No job found in Trash', 'job' ),
+'parent_item_colon' => _x( 'Parent job:', 'job' ),
+'menu_name' => _x( 'Jobs', 'jobs' ),
+);
+$args = array(
+'labels' => $labels,
+'hierarchical' => true,
+'description' => 'Custom post type for Job.',
+'supports' => array( 	'title',
+						'editor',
+						'excerpt',
+						'author',
+						'thumbnail',
+						'trackbacks',
+						'custom-fields',
+						'comments',
+						'revisions',
+						'page-attributes',
+						'post-formats'),
+'taxonomies' => array( 'category',
+						'post_tag',
+						'page-category' ),
+'public' => true,
+'show_ui' => true,
+'show_in_menu' => true,
+'menu_icon' => 'dashicons-editor-code',
+'show_in_nav_menus' => true,
+'publicly_queryable' => true,
+'exclude_from_search' => false,
+'has_archive' => true,
+'query_var' => true,
+'can_export' => true,
+'rewrite' => true,
+'capability_type' => 'post'
+);
+add_theme_support('post-thumbnails');
+register_post_type( 'jobs', $args );
+}
+
+add_action( 'init', 'register_cpt_about' );
+function register_cpt_about() {
+$labels = array(
+'name' => _x( 'About', 'about' ),
+'singular_name' => _x( 'About', 'about' ),
+'add_new' => _x( 'Add New', 'about' ),
+'add_new_item' => _x( 'Add New', 'about' ),
+'edit_item' => _x( 'Edit', 'about' ),
+'new_item' => _x( 'New', 'about' ),
+'view_item' => _x( 'View', 'about' ),
+'search_items' => _x( 'Search', 'about' ),
+'not_found' => _x( 'None found', 'about' ),
+'not_found_in_trash' => _x( 'None found in Trash', 'about' ),
+'parent_item_colon' => _x( 'Parent:', 'about' ),
+'menu_name' => _x( 'About', 'about' ),
+);
+$args = array(
+'labels' => $labels,
+'hierarchical' => true,
+'description' => 'Custom post type for About.',
+'supports' => array( 	'title',
+						'editor',
+						'excerpt',
+						'author',
+						'thumbnail',
+						'trackbacks',
+						'custom-fields',
+						'comments',
+						'revisions',
+						'page-attributes',
+						'post-formats'),
+'taxonomies' => array( 'category',
+						'post_tag',
+						'page-category' ),
+'public' => true,
+'show_ui' => true,
+'show_in_menu' => true,
+'menu_icon' => 'dashicons-welcome-learn-more',
+'show_in_nav_menus' => true,
+'publicly_queryable' => true,
+'exclude_from_search' => false,
+'has_archive' => true,
+'query_var' => true,
+'can_export' => true,
+'rewrite' => true,
+'capability_type' => 'post'
+);
+add_theme_support('post-thumbnails');
+register_post_type( 'about', $args );
+}
+
+add_action( 'init', 'register_cpt_slogan' );
+function register_cpt_slogan() {
+$labels = array(
+'name' => _x( 'Slogan', 'slogan' ),
+'singular_name' => _x( 'Slogan', 'slogan' ),
+'add_new' => _x( 'Add New', 'slogan' ),
+'add_new_item' => _x( 'Add New Slogan', 'slogan' ),
+'edit_item' => _x( 'Edit', 'slogan' ),
+'new_item' => _x( 'New', 'slogan' ),
+'view_item' => _x( 'View', 'slogan' ),
+'search_items' => _x( 'Search', 'slogan' ),
+'not_found' => _x( 'None found', 'slogan' ),
+'not_found_in_trash' => _x( 'None found in Trash', 'slogan' ),
+'parent_item_colon' => _x( 'Parent:', 'slogan' ),
+'menu_name' => _x( 'Slogan', 'slogan' ),
+);
+$args = array(
+'labels' => $labels,
+'hierarchical' => true,
+'description' => 'Custom post type for Slogan.',
+'supports' => array( 	'title',
+						'editor',
+						'excerpt',
+						'author',
+						'thumbnail',
+						'trackbacks',
+						'custom-fields',
+						'comments',
+						'revisions',
+						'page-attributes',
+						'post-formats'),
+'taxonomies' => array( 'category',
+						'post_tag',
+						'page-category' ),
+'public' => true,
+'show_ui' => true,
+'show_in_menu' => true,
+'menu_icon' => 'dashicons-format-quote',
+'show_in_nav_menus' => true,
+'publicly_queryable' => true,
+'exclude_from_search' => false,
+'has_archive' => true,
+'query_var' => true,
+'can_export' => true,
+'rewrite' => true,
+'capability_type' => 'post'
+);
+add_theme_support('post-thumbnails');
+register_post_type( 'slogan', $args );
+}

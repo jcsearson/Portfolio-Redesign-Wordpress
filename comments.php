@@ -5,12 +5,6 @@
  * The area of the page that contains both current comments
  * and the comment form.
  *
- * @package WordPress
- * @subpackage Twenty_Fifteen
- * @since Twenty Fifteen 1.0
- */
-
-/*
  * If the current post is protected by a password and
  * the visitor has not yet entered the password we will
  * return early without loading the comments.
@@ -19,6 +13,91 @@ if ( post_password_required() ) {
 	return;
 }
 ?>
+		<div class="blog-comment-container">
+			<h2 class="strikethrough comment-heading"><span>Comments</span></h2>
+			<div class="single-comment post-styles">
+			<?php wp_list_comments() ?>
+				<div class="user-meta-data">
+					<h3><?php comment_author( $comment_ID ); ?> </h3>
+					<h4 class="time-stamp-comment-main">Published:  <?php comment_date('F d,Y'); ?></h4>
+
+				</div>  <!-- .user-meta-data -->
+				<p><?php comment_text(); ?></p>
+				<a class="comments-reply-link" href="#">Reply</a>
+				<section class="reply-wrap">
+					<div class="comment-reply">
+						<div class="user-meta-data">
+							<h3>Chris Coyier</h3>
+							<h4>Published:  January 21, 2015</h4>
+
+						</div>  <!-- .user-meta-data -->
+						<p>It’s just a YouTube embed, so I dunno. Do other YouTube embeds work for you? I’m burying this just because it doesn’t have anything to do with the content for this video, but we can keep talking it out if you like.</p>
+					</div>  <!-- .comment-reply -->
+				</section>  <!-- reply-wrap -->
+			</div>  <!-- .single-comment   .post-styles -->
+		</div>  <!-- .blog-comment-container -->
+
+
+
+		<div class="user-comments">
+			<form action="wp-comments-post.php" method="post" class="comment-form">
+				<h2 class="title-comments-form">Leave a Reply</h2>
+
+				<div class="input-comments">
+					<span class="first-span">
+						<input
+							class="comment-field1"
+							name="first_name"
+							type="text"
+							value=""
+							tabindex="1"
+							placeholder="First Name"		/>
+					</span>
+					<span>
+						<input
+							class="comment-field2"
+							name="last_name"
+							type="text"
+							value=""
+							tabindex="2"
+							placeholder="Last Name"		/>
+					</span>
+					<div class="email-box">
+						<input
+							class="comment-field3"
+							name="email"
+							type="email"
+							spellcheck="false"
+							class="field text medium"
+							value=""
+							maxlength="255"
+							tabindex="3"
+							placeholder="Email   ( hidden )"       />
+					</div>
+					<div class="msg-box">
+						<textarea
+							class="comment-field4"
+							name="message"
+							class="field textarea small"
+							spellcheck="true"
+							rows="10" cols="50"
+							tabindex="4"
+							onkeyup=""
+							placeholder="Message"
+						       ></textarea>
+					</div>
+					<div class="submit-comment-button">
+						<button name="saveForm" class="submit" type="submit" value="Post" tabindex="5">
+							<div class="submit-icon-wrap">
+								<h3>Post</h3>
+							</div>  <!-- .submit-icon-wrap -->
+						</button>  <!-- .submit -->
+					</div>  <!-- .submit-button -->
+				</div>
+			</form>
+		</div>
+
+
 
 <div id="comments" class="comments-area">
 
