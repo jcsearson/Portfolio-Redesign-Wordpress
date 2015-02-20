@@ -26,8 +26,9 @@
 		</section>  <!-- .about-container -->
 
 		<div class="biography-outer-wrap">
+			<a id="about-me-jump"></a>
 			<div class="biography-intro">
-				<h2><a id="about-me-jump"></a>About Me</h2>
+				<h2>About Me</h2>
 				<p>A self-taught web developer living in Baltimore, MD.</p>
 			</div>  <!-- .biography-intro -->
 			<div class="biography-inner-wrap">
@@ -58,9 +59,10 @@
 		</div>  <!-- .biography-outer-wrap -->
 
 		<section class="portfolio-wrap">
+			<a id="portfolio-jump"></a>
 			<?php $thirdquery = new WP_Query( 'post_type=jobs' ); ?>
 			<?php if ($thirdquery->have_posts()) : while($thirdquery->have_posts()) : $thirdquery->the_post(); ?>
-			<h2><a id="portfolio-jump"></a>Recent Work</h2>
+			<h2>Recent Work</h2>
 			<p><?php the_field('title'); ?></p>
 			<article class="work">
 				<div class="recent-item">
@@ -104,9 +106,10 @@
 
 
 		<div class="blog">
+			<a id="blog-jump"></a>
 			<div class="blog-post-wrap">
 				<div class="wrapper">
-					<h1><a id="blog-jump"></a>Blog</h1>
+					<h1>Blog</h1>
 					<p>Read what I have been talking about recently!</p>
 				</div>  <!-- .wrapper -->
 				<?php
@@ -137,7 +140,8 @@
 
 
 		<section class="contact-form">
-			<h2 class="strikethrough contact-heading"><span><a id="contact-me-jump"></a>Contact Me</span></h2>
+			<a id="contact-me-jump"></a>
+			<h2 class="strikethrough contact-heading"><span>Contact Me</span></h2>
 			<div class="contact-form-wrapper">
 				<form id="form1" name="form1" class="input-contact" accept-charset="UTF-8" autocomplete="off" enctype="multipart/form-data" method="post" novalidate action="contact-send">
 
@@ -229,6 +233,9 @@
 					</li>  <!-- .foot-list-item -->
 				</ul>  <!-- .foot-social -->
 			</div>  <!-- .my-social -->
+			<a href="#jump-up" class="rocket-ship">
+				<svg version="1.1" class="jump-top-assistant" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="60.8 151 249.3 491" enable-background="new 60.8 151 249.3 491" xml:space="preserve"><g><path d="M235,234.1H133.7c11.9-50.6,30.2-83.1,50.7-83.1C204.9,151,223.2,183.5,235,234.1L235,234.1z M171.6,522.4c0,0-43,56.1,8.4,119.6c0,0-23.2-52.9,3-71.1c0,0,22.1-7.4,23.8,15.1c0,0,18.2-35.5,0-63.6L171.6,522.4L171.6,522.4z M287.6,427.3c-10.6-18.3-23.5-33.5-36.9-44.6c0.8-11.4,1.2-23.1,1.2-35.2c0-12.9-0.5-25.4-1.5-37.5c-2.8,2.7-6.5,4.3-10.7,4.3c-8.5,0-15.4-6.9-15.4-15.4v-16.8c0-8.5,6.9-15.4,15.4-15.4c1.9,0,3.7,0.4,5.4,1c-1.6-8.8-3.4-17.3-5.4-25.3H131.4c-7.6,29.7-12.2,66-12.2,105.1c0,12,0.4,23.7,1.2,35C107,393.7,94.1,409,83.4,427.3c-28.5,48.8-30.2,100.9-3.8,116.3l52.2-89.4c6.6,25.2,17.5,45.6,28.6,58.8h50.4c11-13.2,21.9-33.4,28.5-58.5l52,89.1C317.8,528.2,316.1,476.1,287.6,427.3L287.6,427.3z"/></g></svg>
+			</a>
 		</section>  <!-- .contact-form -->
 
 <?php get_footer(); ?>
