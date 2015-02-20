@@ -27,7 +27,7 @@
 
 		<div class="biography-outer-wrap">
 			<div class="biography-intro">
-				<h2>About Me</h2>
+				<h2><a id="about-me-jump"></a>About Me</h2>
 				<p>A self-taught web developer living in Baltimore, MD.</p>
 			</div>  <!-- .biography-intro -->
 			<div class="biography-inner-wrap">
@@ -60,7 +60,7 @@
 		<section class="portfolio-wrap">
 			<?php $thirdquery = new WP_Query( 'post_type=jobs' ); ?>
 			<?php if ($thirdquery->have_posts()) : while($thirdquery->have_posts()) : $thirdquery->the_post(); ?>
-			<h2>Recent Work</h2>
+			<h2><a id="portfolio-jump"></a>Recent Work</h2>
 			<p><?php the_field('title'); ?></p>
 			<article class="work">
 				<div class="recent-item">
@@ -106,7 +106,7 @@
 		<div class="blog">
 			<div class="blog-post-wrap">
 				<div class="wrapper">
-					<h1>Blog</h1>
+					<h1><a id="blog-jump"></a>Blog</h1>
 					<p>Read what I have been talking about recently!</p>
 				</div>  <!-- .wrapper -->
 				<?php
@@ -137,9 +137,9 @@
 
 
 		<section class="contact-form">
-			<h2 class="strikethrough contact-heading"><span>Contact Me</span></h2>
+			<h2 class="strikethrough contact-heading"><span><a id="contact-me-jump"></a>Contact Me</span></h2>
 			<div class="contact-form-wrapper">
-				<form id="form1" name="form1" class="input-contact" accept-charset="UTF-8" autocomplete="off" enctype="multipart/form-data" method="post" novalidate action="contact-send.php">
+				<form id="form1" name="form1" class="input-contact" accept-charset="UTF-8" autocomplete="off" enctype="multipart/form-data" method="post" novalidate action="contact-send">
 
 				<ul>
 					<li class="foli1">

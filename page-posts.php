@@ -47,71 +47,7 @@
 
 
 
-		<section class="contact-form">
-			<h2 class="strikethrough contact-heading"><span>Contact Me</span></h2>
-			<div class="contact-form-wrapper">
-				<form id="form1" name="form1" class="input-contact" accept-charset="UTF-8" autocomplete="off" enctype="multipart/form-data" method="post" novalidate action="contact-send.php">
 
-				<ul>
-					<li class="foli1">
-						<span class="first-span">
-							<input
-								class="field1"
-								name="first_name"
-								type="text"
-								value=""
-								tabindex="1"
-								placeholder="First Name"		/>
-						</span>
-						<span>
-							<input
-								class="field2"
-								name="last_name"
-								type="text"
-								value=""
-								tabindex="2"
-								placeholder="Last Name"		/>
-						</span>
-					</li>  <!-- .foli1 -->
-					<li id="foli3" class="notranslate">
-						<div>
-							<input
-								id="field3"
-								name="email"
-								type="email"
-								spellcheck="false"
-								class="field text medium"
-								value=""
-								maxlength="255"
-								tabindex="3"
-								placeholder="Email"       />
-						</div>
-					</li>  <!-- .foli3 -->
-					<li id="foli4" class="notranslate">
-						<div class="msg-box">
-							<textarea
-								id="field4"
-								name="message"
-								class="field textarea small"
-								spellcheck="true"
-								rows="10" cols="50"
-								tabindex="4"
-								onkeyup=""
-								placeholder="Message"
-							       ></textarea>
-						</div>
-					</li>  <!-- #foli4 -->
-					<li class="buttons">
-						<div class="submit-button">
-							<button id="saveForm" name="saveForm" class="submit" type="submit" value="submit" tabindex="5">
-								<div class="submit-icon-wrap">
-									<svg xmlns="http://www.w3.org/2000/svg" class="submit-ico" x="0px" y="0px" width="50px" height="50px" viewBox="0 0 24 24" style="pointer-events: none; display: block;"><g><path d="M21 11l-7-7v4C7 9 4 14 3 19c2.5-3.5 6-5.1 11-5.1V18L21 11z"/></g></svg>
-								</div>  <!-- .submit-icon-wrap -->
-							</button>  <!-- .submit -->
-						</div>  <!-- .submit-button -->
-					</li>  <!-- .buttons -->
-				</ul>
-			</div>  <!-- contact-form-wrapper -->
 			<div class="my-social">
 				<ul class="foot-social">
 					<li class="foot-list-item">
