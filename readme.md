@@ -1,11 +1,10 @@
 # Portfolio #
 ## Contributors: James C. Searson ##
-
-Tags: black, orange, blue, white, dark, responsive-layout, accessibility-ready, custom-background, custom-colors, custom-header, custom-menu, smooth-scrolling, post-formats, threaded-comments
-Requires at least: 4.1
-Tested up to: 4.1
-Stable tag: 4.1
-License: N/A
+### Tags: ### black, orange, blue, white, dark, responsive-layout, accessibility-ready, custom-background, custom-colors, custom-header, custom-menu, smooth-scrolling, post-formats, threaded-comments
+### Requires at least: ### 4.1
+### Tested up to: ### 4.1
+### Stable tag: ### 4.1
+### License: ### N/A
 
 ## Description ##
 
