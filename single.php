@@ -24,10 +24,11 @@ get_header(); ?>
 			<?php if ( have_posts() ) : while( have_posts() ) : the_post(); ?>
 			<div class="blog-title">
 				<h2><?php the_title(); ?></h2>
-				<h3>Published by James Searson on <?php the_date('F d,Y'); ?></h3>
+				<h3>Published by James Searson on <?php the_date('F d, Y'); ?></h3>
 			</div>  <!-- .blog-title -->
 			<div class="single-blog-post post-styles">
 				<?php the_content(); ?>
+				<p class="share-blog-post"><a href="#">( Share Post )</a></p>
 			</div>  <!-- .single-blog-post   .post-styles-->
 			<div class="blog-post-footer">
 				<span class="blog-post-meta">
@@ -35,8 +36,16 @@ get_header(); ?>
 					<a href="#" rel="tag"><?php the_tags('', ', ', ''); ?></a>
 				</span>
 			</div>
-			<?php endwhile; endif; ?>
 		</div>  <!-- .blog-post-container -->
+
+			<!-- If comments are open or we have at least one comment, load up the comment template. -->
+			<?php
+					if ( comments_open() || get_comments_number() ) :
+						comments_template();
+					endif;
+			?>
+
+		<?php endwhile; endif; ?>
 
 
 

@@ -130,7 +130,7 @@
 						<a href="<?php the_permalink(); ?>">
 							<h5>( Read On... )</h5>
 						</a>
-						<h3><?php the_date('F d,Y'); ?></h3>
+						<h3><?php the_date('F d, Y'); ?></h3>
 					</div>  <!-- .blog-post-meta -->
 				</div>  <!-- .blog-post -->
 				<?php endwhile; endif; ?>
