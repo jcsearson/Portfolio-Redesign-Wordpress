@@ -23,12 +23,18 @@ get_header(); ?>
 		<div class="blog-post-container">
 			<?php if ( have_posts() ) : while( have_posts() ) : the_post(); ?>
 			<div class="blog-title">
-				<h2><?php the_title(); ?></h2>
-				<h3>Published by James Searson on <?php the_date('F d, Y'); ?></h3>
+				<h2 class="blog-post-heading"><?php the_title(); ?></h2>
+				<h3 class="blog-post-date">Published by James Searson on <?php the_date('F d, Y'); ?></h3>
+				<?php
+					$thumb_id = get_post_thumbnail_id();
+					$thumb_url_array = wp_get_attachment_image_src($thumb_id, 'thumbnail-size', true);
+					$thumb_url = $thumb_url_array[0];
+				?>
+				<!-- Call the thumb URL variable using the echo funtion in order to provide the URL in the img source -->
+				<img src="<?php echo $thumb_url ?>" alt="#" class="post-featured-image">
 			</div>  <!-- .blog-title -->
 			<div class="single-blog-post post-styles">
 				<?php the_content(); ?>
-				<p class="share-blog-post"><a href="#">( Share Post )</a></p>
 			</div>  <!-- .single-blog-post   .post-styles-->
 			<div class="blog-post-footer">
 				<span class="blog-post-meta">
@@ -38,9 +44,9 @@ get_header(); ?>
 			</div>
 		</div>  <!-- .blog-post-container -->
 
-			<!-- If comments are open or we have at least one comment, load up the comment template. -->
+			<!-- If comments are open or we have at least one comment, load up the comment template (comments.php).  If there is no comments.php file, load up Wordpress default comment output. -->
 			<?php
-					if ( comments_open() || get_comments_number() ) :
+					if ( comments_open() || '0' != get_comments_number() ) :
 						comments_template();
 					endif;
 			?>
