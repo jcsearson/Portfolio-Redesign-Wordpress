@@ -1,8 +1,9 @@
 <?php
 
 	/*
-		Template Name: Index
+		Template Name: Home
 	*/
+	/*This is the template that is displayed on home page.*/
 
 ?>
 

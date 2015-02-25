@@ -28,10 +28,10 @@
 
 
 	<div class="head-container">
-		<a id="jump-up"></a>
+		<a id="top-page-jump"></a>
 		<div class="head-wrap">
 			<header class="wrapper">
-				<a href="/index.php">James C. Searson</a>
+				<a href="/Index">James C. Searson</a>
 			</header>  <!-- .wrapper -->
 
 			<nav class="menu">
