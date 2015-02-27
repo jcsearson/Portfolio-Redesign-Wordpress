@@ -9,40 +9,25 @@
  * the visitor has not yet entered the password we will
  * return early without loading the comments.
  */
-if ( post_password_required() ) {
+
+// Do not delete these lines
+if (!empty($_SERVER['SCRIPT_FILENAME']) && 'comments.php' == basename($_SERVER['SCRIPT_FILENAME']))
+	die ('Please do not load this page directly. Thanks!');
+
+if ( post_password_required() ) { ?>
+	<p>This post is password protected. Enter the password to view comments.</p>
+<?php
 	return;
 }
 ?>
-		<ul class="commentlist">
-			<h2 class="strikethrough comment-heading"><span>Comments</span></h2>
-			<?php if($comments) : ?>
-			<?php foreach($comments as $comment) : ?>
-			<li class="single-comment post-styles">
 
-				<div class="user-meta-data">
-					<h3><?php comment_author(); ?></h3>
-					<h4 class="time-stamp-comment-main">Published: <?php comment_date(' F d, Y'); ?></h4>
-
-				</div>  <!-- .user-meta-data -->
-				<p class="post-styles"><?php comment_text(); ?></p>
-				<a class="comments-reply-link" href="<?php comment_reply_link(array_merge( $args, array('depth' => $depth, 'max_depth' => $args['max_depth']))) ?>">Reply</a>
-
-				<!-- A Reply to comment -->
-				<ul class="reply-wrap">
-					<li class="comment-reply">
-						<div class="user-meta-data">
-							<h3><?php comment_author(); ?></h3>
-							<h4>Published:<?php comment_date(' F d, Y'); ?></h4>
-						</div>  <!-- .user-meta-data -->
-						<p class="post-styles"><?php comment_text(); ?></p>
-					</li>  <!-- .comment-reply -->
-				</ul>  <!-- reply-wrap -->
-			</li>  <!-- .single-comment   .post-styles -->
-			<?php endforeach; ?>
-			<?php else : ?>
-			<p>No comments yet...</p>
-			<?php endif; ?>
-		</ul>  <!-- .blog-comment-container -->
+		<ol class="commentlist">
+		<?php if( have_comments() ) : ?>
+		<h2 class="strikethrough comment-heading"><span>Comments</span></h2>
+		<?php wp_list_comments('callback=custom_comments'); ?>
+		<?php endif; ?>
+		<?php wp_reset_query(); ?>
+		</ol>  <!-- .commentlist -->
 
 
 

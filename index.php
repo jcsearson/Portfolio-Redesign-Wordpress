@@ -12,23 +12,23 @@
 		<section class="about-container">
 			<div class="cont-about tint">
 				<div class="wrapper">
-				<?php $query = new WP_Query( 'post_type=slogan' ); ?>
-				<?php if ($query->have_posts()) : while($query->have_posts()) : $query->the_post(); ?>
 					<div class="thoughts">
-						<p><?php the_field('header'); ?></p>
+						<p></p>
 					</div>  <!-- .thoughts -->
-				<?php endwhile; endif; ?>
-				<?php wp_reset_query(); ?>
 				</div>  <!-- .wrapper -->
 			</div>  <!-- .cont-about -->
 		</section>  <!-- .about-container -->
 
 		<div class="biography-outer-wrap">
 			<a id="about-me-jump"></a>
+			<?php $query = new WP_Query( 'post_type=slogan' ); ?>
+			<?php if ($query->have_posts()) : while($query->have_posts()) : $query->the_post(); ?>
 			<div class="biography-intro">
 				<h2>About Me</h2>
-				<p>A self-taught web developer living in Baltimore, MD.</p>
+				<p><?php the_field('header'); ?></p>
 			</div>  <!-- .biography-intro -->
+			<?php endwhile; endif; ?>
+			<?php wp_reset_query(); ?>
 			<div class="biography-inner-wrap">
 			<?php $secondquery = new WP_Query( 'post_type=about' ); ?>
 			<?php if ($secondquery->have_posts()) : while($secondquery->have_posts()) : $secondquery->the_post(); ?>
@@ -57,7 +57,7 @@
 
 		<section class="portfolio-wrap">
 			<a id="portfolio-jump"></a>
-			<?php $thirdquery = new WP_Query( 'post_type=jobs' ); ?>
+			<?php $thirdquery = new WP_Query( 'post_type=project' ); ?>
 			<?php if ($thirdquery->have_posts()) : while($thirdquery->have_posts()) : $thirdquery->the_post(); ?>
 			<h2>Recent Work</h2>
 			<p><?php the_field('title'); ?></p>
@@ -75,7 +75,7 @@
 			<?php endwhile; endif; ?>
 			<?php wp_reset_query(); ?>
 			</article>  <!-- .work -->
-			<?php $fourthquery = new WP_Query( 'post_type=project' ); ?>
+			<?php $fourthquery = new WP_Query( 'post_type=jobs' ); ?>
 			<?php if ($fourthquery->have_posts()) : while($fourthquery->have_posts()) : $fourthquery->the_post(); ?>
 			<h2>Recent Project</h2>
 			<p><?php the_field('title'); ?></p>
@@ -154,7 +154,7 @@
 			<a id="contact-me-jump"></a>
 			<h2 class="strikethrough contact-heading"><span>Contact Me</span></h2>
 			<div class="contact-form-wrapper">
-				<form id="form1" name="form1" class="input-contact" accept-charset="UTF-8" autocomplete="off" enctype="multipart/form-data" method="post" novalidate action="contact-send">
+				<form id="form1" name="form1" class="input-contact" accept-charset="UTF-8" autocomplete="off" enctype="multipart/form-data" method="post" novalidate action="/contact-send">
 
 				<ul>
 					<li class="foli1">

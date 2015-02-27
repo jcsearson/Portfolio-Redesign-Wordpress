@@ -330,7 +330,29 @@ require get_template_directory() . '/inc/template-tags.php';
  */
 require get_template_directory() . '/inc/customizer.php';
 
-// Limit Length of Post Excerpt//
+
+/*
+*  ALL CUSTOM CODE ADDED BELOW THIS POINT
+*/
+
+// Custom callback to list comments in the your-theme style
+function custom_comments($comment, $args, $depth) {
+	$GLOBALS['comment'] = $comment;
+?>
+<li id="comment-<?php comment_ID() ?>" class="comments post-styles">
+      <div class="user-meta-data">
+		<h3><?php comment_author() ?></h3>
+		<h4 class="time-stamp-comment-main"><span class="stamp-before">Published:  </span><?php comment_date('F d, Y') ?></h4>
+      </div>
+  	<?php if ($comment->comment_approved == '0') _e("ttttt<span class='unapproved'>Your comment is awaiting moderation.</span>n", 'your-theme') ?>
+  	<p><?php comment_text() ?></p>
+  	<div class="reply">
+		<a class="comments-reply-link" href="#">Reply</a>
+	</div>
+<?php } // end custom_comments
+
+
+// Limit Length of Post Excerpt
 function get_excerpt($count){
   $permalink = get_permalink($post->ID);
   $excerpt = get_the_content();
@@ -340,6 +362,7 @@ function get_excerpt($count){
   return $excerpt;
 }
 
+//Generates a section in wp-admin for a "projects" ACF
 add_action( 'init', 'register_cpt_projects' );
 function register_cpt_projects() {
 $labels = array(
@@ -391,6 +414,7 @@ add_theme_support('post-thumbnails');
 register_post_type( 'projects', $args );
 }
 
+//Generates a section in wp-admin for a "jobs" ACF
 add_action( 'init', 'register_cpt_jobs' );
 function register_cpt_jobs() {
 $labels = array(
@@ -442,6 +466,7 @@ add_theme_support('post-thumbnails');
 register_post_type( 'jobs', $args );
 }
 
+//Generates a section in wp-admin for a "about" ACF
 add_action( 'init', 'register_cpt_about' );
 function register_cpt_about() {
 $labels = array(
@@ -479,7 +504,7 @@ $args = array(
 'public' => true,
 'show_ui' => true,
 'show_in_menu' => true,
-'menu_icon' => 'dashicons-welcome-learn-more',
+'menu_icon' => 'dashicons-id-alt',
 'show_in_nav_menus' => true,
 'publicly_queryable' => true,
 'exclude_from_search' => false,
@@ -493,6 +518,7 @@ add_theme_support('post-thumbnails');
 register_post_type( 'about', $args );
 }
 
+//Generates a section in wp-admin for a "slogan" ACF
 add_action( 'init', 'register_cpt_slogan' );
 function register_cpt_slogan() {
 $labels = array(
@@ -543,3 +569,5 @@ $args = array(
 add_theme_support('post-thumbnails');
 register_post_type( 'slogan', $args );
 }
+
+?>

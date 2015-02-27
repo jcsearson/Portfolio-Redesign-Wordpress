@@ -31,25 +31,25 @@
 		<a id="top-page-jump"></a>
 		<div class="head-wrap">
 			<header class="wrapper">
-				<a href="/Index">James C. Searson</a>
+				<a href="index">James C. Searson</a>
 			</header>  <!-- .wrapper -->
 
 			<nav class="menu">
 				<ul class="nav-list active">
 					<li class="contact-container">
-						<a href="#contact-me-jump">< Contact ></a>
+						<a href="#contact-me-jump">Contact</a>
 						<div class="triangle-marker"></div>
 					</li>  <!-- .contact-container -->
 					<li class="contact-container">
-						<a href="#blog-jump">< Blog ></a>
+						<a href="#blog-jump">Blog</a>
 						<div class="triangle-marker"></div>
 					</li>  <!-- .contact-container -->
 					<li class="contact-container">
-						<a href="#portfolio-jump">< Portfolio ></a>
+						<a href="#portfolio-jump">Portfolio</a>
 						<div class="triangle-marker"></div>
 					</li>  <!-- .contact-container -->
 					<li class="contact-container">
-						<a href="#about-me-jump">< About ></a>
+						<a href="#about-me-jump">About</a>
 						<div class="triangle-marker"></div>
 					</li>  <!-- .contact-container -->
 				</ul>  <!-- .nav-list  //  .active -->
