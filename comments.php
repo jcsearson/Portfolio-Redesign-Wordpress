@@ -23,8 +23,12 @@ if ( post_password_required() ) { ?>
 
 		<ol class="commentlist">
 		<?php if( have_comments() ) : ?>
-		<h2 class="strikethrough comment-heading"><span>Comments</span></h2>
-		<?php wp_list_comments('callback=custom_comments'); ?>
+			<h2 class="strikethrough comment-heading"><span>Comments</span></h2>
+			<?php wp_list_comments('callback=custom_comments'); ?>
+			<?php else : ?>
+				<li id="comment-<?php comment_ID() ?>" class="comments post-styles">
+					<p>No comments yet ...</p>
+				</li>
 		<?php endif; ?>
 		<?php wp_reset_query(); ?>
 		</ol>  <!-- .commentlist -->
