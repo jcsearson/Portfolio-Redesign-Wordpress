@@ -1,11 +1,11 @@
 <?php
-/**
- * The template for displaying all single posts and attachments
- *
- */
+
+	/*
+		Template Name: Category
+	*/
+	/*This is the template that displays posts of a particular category..*/
 
 get_header(); ?>
-
 
 	<div class="main-container single-blog-wrap">
 		<section class="about-container">
@@ -18,34 +18,40 @@ get_header(); ?>
 			</div>  <!-- .cont-about -->
 		</section>  <!-- .about-container -->
 
-
 		<section class="single-post-container">
 			<div class="blog-post-container">
-				<?php if ( have_posts() ) : while( have_posts() ) : the_post(); ?>
-				<div class="blog-title">
-					<h2 class="blog-post-heading"><?php the_title(); ?></h2>
-					<h3 class="blog-post-date">Published by <?php the_author(); ?> on <?php the_date('F d, Y'); ?></h3>
-					<!-- Access the thumbnail/feature image URL -->
-					<?php
-						$thumb_id = get_post_thumbnail_id();
-						$thumb_url_array = wp_get_attachment_image_src($thumb_id, 'thumbnail-size', true);
-						$thumb_url = $thumb_url_array[0];
-					?>
-					<!-- Call the thumb URL variable using the echo funtion in order to provide the URL in the img source -->
-					<img src="<?php echo $thumb_url ?>" alt="Post Featured Image" class="post-featured-image">
-				</div>  <!-- .blog-title -->
-				<div class="single-blog-post post-styles">
-					<?php the_content(); ?>
-				</div>  <!-- .single-blog-post   .post-styles-->
-				<div class="blog-post-footer">
-					<span class="blog-post-meta">
-						<span>Tags: </span>
-						<a href="#" rel="tag"><?php the_tags('', ', ', ''); ?></a>
-					</span>
-				</div> <!-- .single-blog-post   .post-styles -->
+			<?php
+				$args = array(
+					'status' => 'published',
+					'order' => 'DEC',
+				);
+			?>
+			<?php $query = new WP_Query( $args ); ?>
+			<?php if ( $query->have_posts() ) : while( $query->have_posts() ) : $query->the_post(); ?>
+				<section class="single-cat-post">
+					<div class="main-post-cont">
+						<h2 class="post-sample-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+						<h3 class="post-time-stamp">Posted on <?php the_date(); ?></h3>
+						<h3 class="post-author-sign">Author: <?php the_author(); ?></h3>
+						<div class="post-img-thumb">
+							<?php
+								$thumb_id = get_post_thumbnail_id();
+								$thumb_url_array = wp_get_attachment_image_src($thumb_id, 'thumbnail-size', true);
+								$thumb_url = $thumb_url_array[0];
+							?>
+							<img src="<?php echo $thumb_url ?>" alt="Thumbnail Image" class="post-featured-image">
+						</div>
+						<p><?php the_excerpt('[...]'); ?></p>
+					</div>
+					<div class="button-wrapper">
+						<span class="line-bar-after"></span>
+						<a href="<?php the_permalink(); ?>" class="read-on-button">Read Article</a>
+						<span class="line-bar-after"></span>
+					</div>
 				<?php endwhile; endif; ?>
 				<?php wp_reset_query(); ?>
-			</div>  <!-- .blog-post-container -->
+				</section>
+			</div>  <!-- .single-blog-post   .post-styles-->
 
 			<section class="sidebar-nav-wrap">
 				<div class="sidebar-nav">
@@ -84,9 +90,9 @@ get_header(); ?>
 				</div>  <!-- .sidebar-nav -->
 			</section>  <!-- .sidebar-nav-wrap -->
 
-
-
 		</section>  <!-- .single-post-container -->
+
+
 		<a href="#top-page-jump" class="link-to-top">
 			<section class="jump-top-wrap">
 				<div class="jump-top-outer">
@@ -94,7 +100,5 @@ get_header(); ?>
 				</div>
 			</section>
 		</a>
-
-
 
 <?php get_footer(); ?>
