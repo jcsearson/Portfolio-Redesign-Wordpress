@@ -69,9 +69,9 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 /* FONT VARIABLES */
 /* ################################################################## */
 /*    NOTE:  The following breakpoints should be assocciated with the following sizes. */
-/* 		     		X-small          =>          bp(venus) 				*/
-/* 		     		X-med 		    =>          bp(neptune) 			*/
-/* 		     		X-large          =>           default   				*/
+/*            X-small          =>          bp(venus)        */
+/*            X-med         =>          bp(neptune)       */
+/*            X-large          =>           default           */
 /* ################################################################## */
 /* Font-size */
 /* Line-height */
@@ -1850,8 +1850,8 @@ footer .foot-wrap .author-note p a {
 }
 .post-styles h2 {
   font-size: 36px;
-  line-height: 1.4;
   font-weight: 700;
+  line-height: 1;
   font-family: "proxima-nova",sans-serif;
   /* Query below was Specially designed for use with the Susy grid */
   /* Query below was Specially designed for use with the Susy grid */
@@ -1871,7 +1871,7 @@ footer .foot-wrap .author-note p a {
 }
 .post-styles h3 {
   font-size: 32px;
-  line-height: 1.35;
+  line-height: 1;
   font-weight: 700;
   font-family: "proxima-nova",sans-serif;
   /* Query below was Specially designed for use with the Susy grid */
@@ -1892,7 +1892,7 @@ footer .foot-wrap .author-note p a {
 }
 .post-styles h4 {
   font-size: 28px;
-  line-height: 1.3;
+  line-height: 1;
   font-weight: 700;
   font-family: "proxima-nova",sans-serif;
   /* Query below was Specially designed for use with the Susy grid */
@@ -1913,7 +1913,7 @@ footer .foot-wrap .author-note p a {
 }
 .post-styles h5 {
   font-size: 24px;
-  line-height: 1.3;
+  line-height: 1;
   font-weight: 700;
   font-family: "proxima-nova",sans-serif;
   /* Query below was Specially designed for use with the Susy grid */
