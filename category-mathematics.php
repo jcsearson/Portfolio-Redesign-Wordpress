@@ -1,7 +1,7 @@
 <?php
 
 	/*
-		Template Name: Category
+		Template Name: Mathematics
 	*/
 	/*This is the template that displays posts of a particular category..*/
 
@@ -20,32 +20,23 @@ get_header(); ?>
 
 		<section class="single-post-container">
 			<div class="blog-post-container">
-			<?php
-			// get all the categories from the database
-			$categories = get_categories();
-				// loop through the categries
-				foreach ($categories as $category) {
-					// setup the cateogory ID
-					$category_id= $category->term_id;
-			?>
-			<div class="category-archive-title">
-				<h2 class="category-title">Blog Posts about <?php echo $category->name; ?></h2>
-			</div>  <!-- .blog-title -->
-
+				<div class="category-archive-title">
+					<h2 class="category-title">Mathematical Posts</h2>
+				</div>  <!-- .blog-title -->
 				<section class="single-cat-post">
+				<?php  // create a custom wordpress query
+					// set the "paged" parameter (use 'page' if the query is on a static front page)
+    					$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
+					$args = array(
+						'cat'				=> '42',
+						'paged'					=> $paged,  //  Highlights the current page number in pagination bar
+					   	'posts_per_page'      	=> '5'
+					);
+				?>
+				<?php $the_query = new WP_Query( $args ); ?>
+				<?php if ( $the_query->have_posts() ) : while( $the_query->have_posts() ) : $the_query->the_post(); ?>
+				<?php // create our link now that the post is setup ?>
 					<div class="main-post-cont">
-					<?php  // create a custom wordpress query
-						// set the "paged" parameter (use 'page' if the query is on a static front page)
-    						$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
-						$args = array(
-							'cat' 					=> $category_id,
-							'paged'					=> $paged,
-				   			'posts_per_page'      	=> '5'
-						);
-					?>
-					<?php $the_query = new WP_Query( $args ); ?>
-					<?php if ( $the_query->have_posts() ) : while( $the_query->have_posts() ) : $the_query->the_post(); ?>
-					<?php // create our link now that the post is setup ?>
 						<h2 class="post-sample-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 						<h3 class="post-time-stamp">Posted on <?php the_date(); ?></h3>
 						<h3 class="post-author-sign">Author: <?php the_author(); ?></h3>

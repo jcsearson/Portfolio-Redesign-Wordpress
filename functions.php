@@ -331,9 +331,39 @@ require get_template_directory() . '/inc/template-tags.php';
 require get_template_directory() . '/inc/customizer.php';
 
 
-/*
+/* ######################################
 *  ALL CUSTOM CODE ADDED BELOW THIS POINT
-*/
+*/ ######################################
+
+//  Posts by Category Pagination
+function wp_pagination() {
+global $the_query;
+$big = 12345678;
+$page_format = paginate_links( array(
+    'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
+    'format' => '?paged=%#%',
+    'current' => max( 1, get_query_var('paged') ),
+    'total' => $the_query->max_num_pages,
+    'type'  => 'array',
+    'prev_text' => __( '<< Previous Posts', 'textdomain' ),
+    'next_text' => __( 'More Posts >>', 'textdomain' ),
+) );
+if( is_array($page_format) ) {
+            $paged = ( get_query_var('paged') == 0 ) ? 1 : get_query_var('paged');
+            echo '<div class="post-navi-wrap">';
+	            foreach ( $page_format as $page ) {  // Prints numerical page numbers
+	                    echo $page;
+	            }
+           echo '</div>';
+}
+}
+
+// Customized text following content excerpt
+function et_excerpt_more($more) {
+    global $post;
+    return ' ...';
+}
+add_filter('excerpt_more', 'et_excerpt_more');
 
 // Custom callback to list comments in the your-theme style
 function custom_comments($comment, $args, $depth) {

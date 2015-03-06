@@ -31,7 +31,7 @@
 		<a id="top-page-jump"></a>
 		<div class="head-wrap">
 			<header class="wrapper">
-				<a href="index">James C. Searson</a>
+				<a href="/home">James C. Searson</a>
 			</header>  <!-- .wrapper -->
 
 			<nav class="menu">
