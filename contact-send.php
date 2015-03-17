@@ -27,7 +27,7 @@
 						$message = $_POST[ 'message' ];
 
 						$to = 'j.c.searson@gmail.com';
-						$subject = 'New Submission - Contact Form - MovieWake';
+						$subject = 'New Submission - Contact Form - Searsino.com';
 
 						mail ($to, $subject, $message, "From: " . $first_name . ' ' . $last_name);
 

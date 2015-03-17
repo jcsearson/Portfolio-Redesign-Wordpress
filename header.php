@@ -34,6 +34,7 @@
 				<a href="/home">James C. Searson</a>
 			</header>  <!-- .wrapper -->
 
+			<?php if ( is_front_page() || is_page_template( 'contact-send.php' )): ?>  <!-- Show menu only on home page (NOT NECCESSARY for BLOG) -->
 			<nav class="menu">
 				<ul class="nav-list active">
 					<li class="contact-container">
@@ -54,5 +55,6 @@
 					</li>  <!-- .contact-container -->
 				</ul>  <!-- .nav-list  //  .active -->
 			</nav>  <!-- .menu -->
+			<?php endif; ?>
 		</div>  <!-- .head-wrap -->
 	</div>  <!-- .head-container -->

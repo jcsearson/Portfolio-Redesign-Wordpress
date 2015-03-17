@@ -28,7 +28,7 @@ get_header(); ?>
 					// set the "paged" parameter (use 'page' if the query is on a static front page)
     					$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
 					$args = array(
-						'cat'					=> '43',
+						'cat'					=> '43',  // '43' local / '66' live
 						'paged'					=> $paged,  //  Highlights the current page number in pagination bar
 					   	'posts_per_page'      	=> '5'
 					);
@@ -40,14 +40,6 @@ get_header(); ?>
 						<h2 class="post-sample-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 						<h3 class="post-time-stamp">Posted on <?php the_date(); ?></h3>
 						<h3 class="post-author-sign">Author: <?php the_author(); ?></h3>
-						<div class="post-img-thumb">
-							<?php
-								$thumb_id = get_post_thumbnail_id();  // assigns thumbnail id to variable
-								$thumb_url_array = wp_get_attachment_image_src($thumb_id, 'thumbnail-size', true);  // stores args of thumbnail in array
-								$thumb_url = $thumb_url_array[0];  // accesses the url of thumbnail args array and stores in variable to be used
-							?>
-							<img src="<?php echo $thumb_url ?>" alt="Thumbnail Image" class="post-featured-image">
-						</div>
 						<p><?php the_excerpt(); ?></p>
 					</div>
 					<div class="button-wrapper">

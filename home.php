@@ -58,24 +58,7 @@
 
 		<section class="portfolio-wrap">
 			<a id="portfolio-jump"></a>
-			<?php $thirdquery = new WP_Query( 'post_type=project' ); ?>
-			<?php if ($thirdquery->have_posts()) : while($thirdquery->have_posts()) : $thirdquery->the_post(); ?>
-			<h2>Recent Work</h2>
-			<p><?php the_field('title'); ?></p>
-			<article class="work">
-				<div class="recent-item">
-					<a href="<?php the_field('link'); ?>">
-						<div class="recent-work">
-						</div>  <!-- .recent-work -->
-					</a>
-					<p><?php the_field('skills'); ?></p>
-				</div>  <!-- .recent-item -->
-				<div class="work-description">
-					<p><?php the_field('description'); ?></p>
-				</div>  <!-- .work-description -->
-			<?php endwhile; endif; ?>
-			<?php wp_reset_query(); ?>
-			</article>  <!-- .work -->
+
 			<?php $fourthquery = new WP_Query( 'post_type=jobs' ); ?>
 			<?php if ($fourthquery->have_posts()) : while($fourthquery->have_posts()) : $fourthquery->the_post(); ?>
 			<h2>Recent Project</h2>

@@ -7,6 +7,10 @@
 
 <section class="sidebar-nav-wrap">
 	<div class="sidebar-nav">
+
+
+
+		<!-- List of 5 Recent Posts -->
 		<ol class="recent-post-wrap">
 			<div class="title-sidebar-wrap">
 				<h2>Recent Posts</h2>
@@ -26,6 +30,10 @@
 			<?php endwhile; endif; ?>
 			<?php wp_reset_query(); ?>
 		</ol>
+
+
+
+		<!-- List of all Post Categories -->
 		<ol class="categories-wrap">
 			<div class="title-sidebar-wrap">
 				<h2>Categories</h2>
@@ -41,7 +49,7 @@
 					$cat_clean = $category->name;
 					// strip out all whitespace
 					$cat_clean = preg_replace('/\s*/', '', $cat_clean);
-					// convert the string to all lowercase
+					// convert the string to lowercase
 					$cat_clean = strtolower($cat_clean);
 			?>
 			<li><span>></span><a href="/category-<?php echo $cat_clean ?>"><?php echo $category->name ?>  ( <?php echo $number_posts; ?> )</a></li><br>
@@ -49,5 +57,12 @@
 				$number_posts = '0';
 			} ?>
 		</ol>
+
+
+
+		<!-- List of Social Media Statistics (Quora, Github, etc.) -->
+
+
+
 	</div>  <!-- .sidebar-nav -->
 </section>  <!-- .sidebar-nav-wrap -->

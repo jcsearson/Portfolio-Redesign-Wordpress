@@ -1,7 +1,7 @@
 <?php
 
 	/*
-		Template Name: Mathematics
+		Template Name: Quora
 	*/
 	/*This is the template that displays posts of a particular category..*/
 
@@ -21,14 +21,14 @@ get_header(); ?>
 		<section class="single-post-container">
 			<div class="blog-post-container">
 				<div class="category-archive-title">
-					<h2 class="category-title">Mathematical Posts</h2>
+					<h2 class="category-title">Quora Posts</h2>
 				</div>  <!-- .blog-title -->
 				<section class="single-cat-post">
 				<?php  // create a custom wordpress query
 					// set the "paged" parameter (use 'page' if the query is on a static front page)
     					$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
 					$args = array(
-						'cat'					=> '42',  // '42' local / '65' live
+						'cat'					=> '75',  // '75' local / '91' live
 						'paged'					=> $paged,  //  Highlights the current page number in pagination bar
 					   	'posts_per_page'      	=> '5'
 					);
@@ -40,9 +40,6 @@ get_header(); ?>
 						<h2 class="post-sample-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 						<h3 class="post-time-stamp">Posted on <?php the_date(); ?></h3>
 						<h3 class="post-author-sign">Author: <?php the_author(); ?></h3>
-						<div class="post-img-thumb math-img-thumb">
-							<img src="<?php the_field('problem'); ?>" alt="Post Featured Image" class="post-featured-image">
-						</div>
 						<p><?php the_excerpt(); ?></p>
 					</div>
 					<div class="button-wrapper">
