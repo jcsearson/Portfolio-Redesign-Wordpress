@@ -40,7 +40,19 @@ get_header(); ?>
 				<div class="blog-post-footer">
 					<span class="blog-post-meta">
 						<span>Tags: </span>
-						<a href="#" rel="tag"><?php the_tags('', ', ', ''); ?></a>
+						<?php
+						$tags = get_the_tags();
+						foreach ( $tags as $tag ) {
+							// access the location in array for string value for each tag
+							$tag_id = $tag->term_id;
+							// access the address in array for linking to tag-xxx template?
+							$tag_link = $tag->term_link;
+						?>
+						<a href="<?php echo $tag->link; ?>" rel="tag"><?php echo $tag->name; ?></a>
+						<?php
+						echo ',';  // divide tags...
+						 } //  end foreach
+						 ?>
 					</span>
 				</div> <!-- .single-blog-post   .post-styles -->
 				<?php endwhile; endif; ?>

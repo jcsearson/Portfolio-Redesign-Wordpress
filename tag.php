@@ -1,7 +1,7 @@
 <?php
 
 	/*
-		Template Name: Category
+		Template Name: Tag
 	*/
 	/*This is the template that displays posts of a particular category..*/
 
@@ -31,7 +31,6 @@ get_header(); ?>
 			<div class="category-archive-title">
 				<h2 class="category-title">Blog Posts about <?php echo $category->name; ?></h2>
 			</div>  <!-- .blog-title -->
-			<?php } ?>
 
 				<section class="single-cat-post">
 					<div class="main-post-cont">

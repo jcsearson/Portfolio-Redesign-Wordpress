@@ -57,12 +57,5 @@
 				$number_posts = '0';
 			} ?>
 		</ol>
-
-
-
-		<!-- List of Social Media Statistics (Quora, Github, etc.) -->
-
-
-
 	</div>  <!-- .sidebar-nav -->
 </section>  <!-- .sidebar-nav-wrap -->
