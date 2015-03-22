@@ -3,7 +3,11 @@
 	/*
 		Template Name: Tag
 	*/
-	/*This is the template that displays posts of a particular category..*/
+/*
+ * The template for displaying Tag pages
+ *
+ * Used to display archive-type pages for posts in a tag.
+ */
 
 get_header(); ?>
 
@@ -12,7 +16,7 @@ get_header(); ?>
 			<div class="cont-about tint">
 				<div class="wrapper">
 					<div class="thoughts">
-						<p></p>
+						<p><!-- "Slogan" (Custom Field) would go here if filled out --></p>
 					</div>  <!-- .thoughts -->
 				</div>  <!-- .wrapper -->
 			</div>  <!-- .cont-about -->
@@ -20,14 +24,7 @@ get_header(); ?>
 
 		<section class="single-post-container">
 			<div class="blog-post-container">
-			<?php
-			// get all the categories from the database
-			$categories = get_categories();
-				// loop through the categries
-				foreach ($categories as $category) {
-					// setup the cateogory ID
-					$category_id= $category->term_id;
-			?>
+
 			<div class="category-archive-title">
 				<h2 class="category-title">Blog Posts about <?php echo $category->name; ?></h2>
 			</div>  <!-- .blog-title -->

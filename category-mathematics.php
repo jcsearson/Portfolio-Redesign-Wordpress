@@ -40,9 +40,25 @@ get_header(); ?>
 						<h2 class="post-sample-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 						<h3 class="post-time-stamp">Posted on <?php the_date(); ?></h3>
 						<h3 class="post-author-sign">Author: <?php the_author(); ?></h3>
-						<div class="post-img-thumb math-img-thumb">
-							<img src="<?php the_field('problem'); ?>" alt="Post Featured Image" class="post-featured-image">
+						<?php
+							//  Mathematical posts have the option of choosing to use one of the following:
+								// 1.  Advanced Custom Field image the_field('problem') of equation to be solved.
+								// 2.  Featured Post Image (for longer questions to be readable when listing math posts)
+							if(has_post_thumbnail()) {
+						?>
+						<div class="post-img-thumb">
+							<?php
+								$thumb_id = get_post_thumbnail_id();  // assigns thumbnail id to variable
+								$thumb_url_array = wp_get_attachment_image_src($thumb_id, 'thumbnail-size', true);  // stores args of thumbnail in array
+								$thumb_url = $thumb_url_array[0];  // accesses the url of thumbnail args array and stores in variable to be used
+							?>
+							<img src="<?php echo $thumb_url ?>" alt="Thumbnail Image" class="post-featured-image">
 						</div>
+						<?php } else { ?>
+							<div class="post-img-thumb math-img-thumb">
+								<img src="<?php the_field('problem'); ?>" alt="Post Featured Image" class="post-featured-image">
+							</div>
+						<?php } ?>
 						<p><?php the_excerpt(); ?></p>
 					</div>
 					<div class="button-wrapper">
