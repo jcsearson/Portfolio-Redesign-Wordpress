@@ -47,14 +47,14 @@
 					$number_posts += $category->count;
 					// assign category names to a new variable for modifications
 					$cat_clean = $category->name;
+					$cat_lower = $category->name;
 					// strip out all whitespace
-					$cat_clean = preg_replace('/\s*/', '', $cat_clean);
-					// convert the string to lowercase
-					$cat_clean = strtolower($cat_clean);
+					$cat_clean = preg_replace('/\s*-/', ' ', $cat_clean);
+					$cat_lower = strtolower($cat_lower);
 			?>
-			<li><span>></span><a href="/category-<?php echo $cat_clean ?>"><?php echo $category->name ?>  ( <?php echo $number_posts; ?> )</a></li><br>
+			<li><span>></span><a href="/category/<?php echo $cat_lower ?>"><?php echo $cat_clean ?>  ( <?php echo $number_posts; ?> )</a></li><br>
 			<?php
-				$number_posts = '0';
+				$number_posts = '0';  // reset so value can be calculated for next category
 			} ?>
 		</ol>
 	</div>  <!-- .sidebar-nav -->

@@ -20,44 +20,38 @@ get_header(); ?>
 
 		<section class="single-post-container">
 			<div class="blog-post-container">
-			<?php
-			// get all the categories from the database
-			$categories = get_categories();
-				// loop through the categries
-				foreach ($categories as $category) {
-					// setup the cateogory ID
-					$category_id= $category->term_id;
-			?>
-			<div class="category-archive-title">
-				<h2 class="category-title">Blog Posts about <?php echo $category->name; ?></h2>
-			</div>  <!-- .blog-title -->
-			<?php } ?>
-
-				<section class="single-cat-post">
-					<div class="main-post-cont">
-					<?php  // create a custom wordpress query
-						// set the "paged" parameter (use 'page' if the query is on a static front page)
-    						$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
-						$args = array(
-							'cat' 					=> $category_id,
-							'paged'					=> $paged,
-				   			'posts_per_page'      	=> '5'
-						);
+				<div class="category-archive-title">
+					<?php
+						if( is_category('91') ) {  // '75' local / '91' live  -- quora
+							$cat_title = 'Quora' . ' ';
+						} elseif( is_category('64') ) {  // '44' local / '64' live  -- film
+							$cat_title = 'Film' . ' ';
+						} elseif( is_category('107') ) {  // '84' local / '107' live  -- ios
+							$cat_title = 'iOS Development' . ' ';
+						} elseif( is_category('66') ) {  // '43' local / '66' live  -- social
+							$cat_title = 'Social' . ' ';
+						} elseif( is_category('67') ) {  //  '41' local / '67' live  -- webdev
+							$cat_title = 'Web Development' . ' ';
+						}
 					?>
-					<?php $the_query = new WP_Query( $args ); ?>
-					<?php if ( $the_query->have_posts() ) : while( $the_query->have_posts() ) : $the_query->the_post(); ?>
-					<?php // create our link now that the post is setup ?>
+					<h2 class="category-title"><?php echo $cat_title . ' '; ?>Posts</h2>
+				</div>  <!-- .blog-title -->
+				<section class="single-cat-post">
+				<?php  // specifications for posts
+					// set the "paged" parameter (use 'page' if the query is on a static front page)
+    					$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
+					$args = array(
+						'paged'					=> $paged,  //  Highlights the current page number in pagination bar
+					   	'posts_per_page'      	=> '5'
+					);
+				?>
+				<?php $the_query = new WP_Query( $args );     // create a custom wordpress query  ?>
+				<?php if ( $the_query->have_posts() ) : while( $the_query->have_posts() ) : $the_query->the_post(); ?>
+				<?php // create our link now that the post is setup ?>
+					<div class="main-post-cont">
 						<h2 class="post-sample-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 						<h3 class="post-time-stamp">Posted on <?php the_date(); ?></h3>
 						<h3 class="post-author-sign">Author: <?php the_author(); ?></h3>
-						<div class="post-img-thumb">
-							<?php
-								$thumb_id = get_post_thumbnail_id();  // assigns thumbnail id to variable
-								$thumb_url_array = wp_get_attachment_image_src($thumb_id, 'thumbnail-size', true);  // stores args of thumbnail in array
-								$thumb_url = $thumb_url_array[0];  // accesses the url of thumbnail args array and stores in variable to be used
-							?>
-							<img src="<?php echo $thumb_url ?>" alt="Thumbnail Image" class="post-featured-image">
-						</div>
 						<p><?php the_excerpt(); ?></p>
 					</div>
 					<div class="button-wrapper">
@@ -81,7 +75,9 @@ get_header(); ?>
 		<a href="#top-page-jump" class="link-to-top">
 			<section class="jump-top-wrap">
 				<div class="jump-top-outer">
-					<div class="jump-top-inner"></div>
+					<div class="jump-top-inner">
+						<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" width="125px" height="25px" viewBox="0 0 268.831 268.832" xml:space="preserve" class="arrowup"><g><path d="M223.255 83.659l-80-79.998c-4.881-4.881-12.797-4.881-17.678 0l-80 80c-4.883 4.882-4.883 12.8 0 17.7 c2.439 2.4 5.6 3.7 8.8 3.661s6.397-1.221 8.839-3.661l58.661-58.661v213.654c0 6.9 5.6 12.5 12.5 12.5 c6.901 0 12.5-5.597 12.5-12.5V42.677l58.661 58.659c4.883 4.9 12.8 4.9 17.7 0 C228.137 96.5 228.1 88.5 223.3 83.659z"/></g></svg>
+					</div>
 				</div>
 			</section>
 		</a>

@@ -1,7 +1,7 @@
 <?php
 
 	/*
-		Template Name: Film
+		Template Name: Web Development
 	*/
 	/*This is the template that displays posts of a particular category..*/
 
@@ -21,19 +21,19 @@ get_header(); ?>
 		<section class="single-post-container">
 			<div class="blog-post-container">
 				<div class="category-archive-title">
-					<h2 class="category-title">Film Posts</h2>
+					<h2 class="category-title">Web Development Posts</h2>
 				</div>  <!-- .blog-title -->
 				<section class="single-cat-post">
-				<?php  // create a custom wordpress query
+				<?php  // specifications for posts
 					// set the "paged" parameter (use 'page' if the query is on a static front page)
     					$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
 					$args = array(
-						'cat'					=> '64',  // '44' local / '64' live
+						'cat'					=> '67',  //  '41' local / '67' live
 						'paged'					=> $paged,  //  Highlights the current page number in pagination bar
 					   	'posts_per_page'      	=> '5'
 					);
 				?>
-				<?php $the_query = new WP_Query( $args ); // create a custom wordpress query  ?>
+				<?php $the_query = new WP_Query( $args );     // create a custom wordpress query  ?>
 				<?php if ( $the_query->have_posts() ) : while( $the_query->have_posts() ) : $the_query->the_post(); ?>
 				<?php // create our link now that the post is setup ?>
 					<div class="main-post-cont">
