@@ -28,7 +28,7 @@ get_header(); ?>
 					<!-- Access the thumbnail/feature image URL -->
 					<?php
 						// If the post is from the math category, do not show the featured image when viewing the full post, because the question will already be written within the_content().
-						if(! in_category('65')) {  //  '42' local / '65' live  <-- 'Mathematics' category
+						if(! in_category('42')) {  //  '42' local / '65' live  <-- 'Mathematics' category
 
 						$thumb_id = get_post_thumbnail_id();  // assigns thumbnail id to variable
 						$thumb_url_array = wp_get_attachment_image_src($thumb_id, 'thumbnail-size', true);  // stores args of thumbnail in array
@@ -41,6 +41,8 @@ get_header(); ?>
 				<div class="single-blog-post post-styles">
 					<?php the_content(); ?>
 				</div>  <!-- .single-blog-post   .post-styles-->
+				<?php endwhile; endif; ?>
+				<?php wp_reset_query(); ?>
 				<div class="blog-post-footer">
 					<span class="blog-post-meta">
 						<span>Tags: </span>
@@ -53,8 +55,10 @@ get_header(); ?>
 							$tag_id = $tag->term_id;
 							// access the address in array for linking to tag-xxx template?
 							$tag_link = $tag->term_link;
+							$tag_mod = $tag->name;
+							$tag_hyph = str_replace(" ", "-", $tag_mod);
 						?>
-						<a href="<?php echo $tag->link; ?>" rel="tag"><?php echo $tag->name; ?></a>
+						<a href="/tag"><?php echo $tag_mod; ?></a>
 						<?php
 							// If there is anymore tags, print a comma
 							if($loopCount < count($tags)) {
@@ -68,8 +72,7 @@ get_header(); ?>
 						 ?>
 					</span>
 				</div> <!-- .single-blog-post   .post-styles -->
-				<?php endwhile; endif; ?>
-				<?php wp_reset_query(); ?>
+
 			</div>  <!-- .blog-post-container -->
 
 			<?php get_sidebar(); ?>
